@@ -1,0 +1,20 @@
+body{
+    background-image:url("images/header.gif");
+    background-repeat:repeat-x;
+    color: #665544;
+}
+h1 {
+    color: white;
+    padding: 20px;}
+
+#image{
+    background: #ffffff url("images/tulip.gif") no-repeat right bottom;
+    color: #665544;
+    padding: 20px;
+}
+#input1{
+    padding: 20px 50% 20px 20px;
+}
+#input2{
+    padding: 20px 0% 20px 70%;
+}
