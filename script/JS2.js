@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 ave: (parseFloat(document.getElementsByName("Math")[0].value) + parseFloat(document.getElementsByName("Chinese")[0].value) + parseFloat(document.getElementsByName("English")[0].value) + parseFloat(document.getElementsByName("Programing")[0].value)) / 4
             };
             let student = [];
-            student = JSON.parse(localStorage.getItem("date"));//""[]
+            student = JSON.parse(localStorage.getItem("date"));
             let j = JSON.stringify(i);
             localStorage.setItem("student", j);
             console.log(localStorage.getItem("student"));
@@ -84,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 item6.innerHTML = `${s[a].sum}`;
                 item7.innerHTML = `${s[a].ave}`;
                 item8.innerHTML =
-                    `<a id="botton_append"  type="button" onclick='append(${s[a].number})' class="btn btn-info btn-xs" >修改</a>
-                     <a id="botton_delete" type="button"  onclick='deleteInformation(${s[a].number})' class="btn btn-danger btn-xs">删除</a>`;
+                    `<a id="botton_append"  type="button" onclick='append(${s[a].number})' class="btn btn-default" >修改</a>
+                     <a id="botton_delete" type="button"  onclick='deleteInformation(${s[a].number})' class="btn btn-default">删除</a>`;
                 list.appendChild(item8);
                 list.insertBefore(item7, item8);
                 list.insertBefore(item6, item7);
@@ -121,8 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         item6.innerHTML = `${s[a].sum}`;
                         item7.innerHTML = `${s[a].ave}`;
                         item8.innerHTML =
-                            `<a id="botton_append"  type="button" onclick='append(${s[a].number})' class="btn btn-info btn-xs" >修改</a>
-                     <a id="botton_delete" type="button"  onclick='deleteInformation(${s[a].number})' class="btn btn-danger btn-xs">删除</a>`;
+                            `<a id="botton_append"  type="button" onclick='append(${s[a].number})' class="btn btn-default" >修改</a>
+                         <a id="botton_delete" type="button"  onclick='deleteInformation(${s[a].number})' class="btn btn-default">删除</a>`;
                         list.appendChild(item8);
                         list.insertBefore(item7, item8);
                         list.insertBefore(item6, item7);
@@ -132,12 +132,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         list.insertBefore(item2, item3);
                         list.insertBefore(item1, item2);
                         showList.appendChild(list);
-/*                        let total= "<tr>" +
+                        /*                        var w= "<tr>" +
                          " <td>"+s[a].name+"</td>" +
                          "<td>"+s[a].math+"</td>" +
                          "</tr>";
                          $("#printstudent").append(w);*/
                     }
+                    /*                   else{
+                     layer.msg('没有该数据', {icon: 0});
+                     }*/
                 }
             }
         }
@@ -194,7 +197,7 @@ function append(number) {
                 content: html_panel,
                 area: ['600px', '400px'],
                 btn: ['提交', '取消'],
-                yes: function () {
+                yes:function () {
                     let i = {
                         name: document.getElementsByName("Name1")[0].value,//getElementsByName获取数组，要取出内部的值
                         number: document.getElementsByName("Number1")[0].value,
@@ -243,33 +246,7 @@ function deleteInformation(number) {
     $(".printstudentto").remove();//清空
 }
 
-//求中位数
-function midNumber(studentAchievementTotalLists) {
-    let list = [];//存sum
-    for (let i = 0; i < studentAchievementTotalLists.length; i++) {
-        list.push(studentAchievementTotalLists[i].sum);
-    }
-    list.sort(seq);
-    let a = list.length;
-    // console.log(list);
-    if (a % 2 == 0) {
-        console.log((list[a - 1 / 2] + list[a - 1 / 2 + 1]) / 2)
-        return (list[a / 2] + list[a / 2 + 1]) / 2
-    } else {
-        console.log(list[parseInt(a / 2)]);
-        return list[parseInt(a - 1 / 2)];
-    }
-}
-//排序
-function seq(a, b) {
-    if (a > b) {
-        return 1;
-    } else if (a > b) {
-        return -1;
-    } else {
-        return 0;
-    }
-}
+
 /*
  <tr>
  <td>${studentObj.name}</td>
@@ -281,3 +258,4 @@ function seq(a, b) {
  <td>${studentObj.subAverage}</td>
  </tr>
  */
+
